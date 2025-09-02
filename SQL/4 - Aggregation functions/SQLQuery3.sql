@@ -1,154 +1,158 @@
---1) Вывести для каждого Izd количество книг и оставить только те издательства, где книг ? 10.
+п»ї--Р’С‹РІРµСЃС‚Рё РґР»СЏ РєР°Р¶РґРѕРіРѕ Izd РєРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі Рё РѕСЃС‚Р°РІРёС‚СЊ С‚РѕР»СЊРєРѕ С‚Рµ РёР·РґР°С‚РµР»СЊСЃС‚РІР°, РіРґРµ РєРЅРёРі в‰Ґ 10.
+
 --SELECT 
 --* FROM books
 
---SELECT Izd, COUNT (*) AS 'Количество книг'
+--SELECT Izd, COUNT (*) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі'
 --FROM books
 --GROUP BY Izd 
 --HAVING COUNT (*) >= 10
 --ORDER BY COUNT(*) DESC
 
---2) Для каждого Category показать среднюю цену и оставить категории со средней ценой > 25.
+--Р”Р»СЏ РєР°Р¶РґРѕРіРѕ Category РїРѕРєР°Р·Р°С‚СЊ СЃСЂРµРґРЅСЋСЋ С†РµРЅСѓ Рё РѕСЃС‚Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёРё СЃРѕ СЃСЂРµРґРЅРµР№ С†РµРЅРѕР№ > 25.
 
---SELECT Category,AVG(Price) AS 'Средняя цена'
+--SELECT Category,AVG(Price) AS 'РЎСЂРµРґРЅСЏСЏ С†РµРЅР°'
 --FROM books
 --GROUP BY Category
 --HAVING AVG(Price) >25
 --ORDER BY AVG(Price) DESC 
 
---3) По Themes вывести максимальную цену и оставить только темы, где MAX(Price) ? 100.
+--РџРѕ Themes РІС‹РІРµСЃС‚Рё РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ С†РµРЅСѓ Рё РѕСЃС‚Р°РІРёС‚СЊ С‚РѕР»СЊРєРѕ С‚РµРјС‹, РіРґРµ MAX(Price) в‰Ґ 100.
 
---SELECT Themes,MAX(Price) AS 'Максимальная цена'
+--SELECT Themes,MAX(Price) AS 'РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ С†РµРЅР°'
 --FROM books
 --GROUP BY Themes
 --HAVING MAX(Price) >= 100
 --ORDER BY MAX(Price) DESC
 
---4) Для каждого Format посчитать общее число страниц (SUM(Pages)) и выбрать форматы, где сумма > 5000.
+--Р”Р»СЏ РєР°Р¶РґРѕРіРѕ Format РїРѕСЃС‡РёС‚Р°С‚СЊ РѕР±С‰РµРµ С‡РёСЃР»Рѕ СЃС‚СЂР°РЅРёС† (SUM(Pages)) Рё РІС‹Р±СЂР°С‚СЊ С„РѕСЂРјР°С‚С‹, РіРґРµ СЃСѓРјРјР° > 5000.
 
---SELECT Format,SUM(Pages) AS 'Общее число страниц'
+--SELECT Format,SUM(Pages) AS 'РћР±С‰РµРµ С‡РёСЃР»Рѕ СЃС‚СЂР°РЅРёС†'
 --FROM books
 --GROUP BY Format
 --HAVING SUM(Pages) > 5000
 --ORDER BY SUM(Pages) DESC
 
---5) По Izd посчитать средний тираж и выбрать издательства со средним тиражом между 1000 и 5000.
+--РџРѕ Izd РїРѕСЃС‡РёС‚Р°С‚СЊ СЃСЂРµРґРЅРёР№ С‚РёСЂР°Р¶ Рё РІС‹Р±СЂР°С‚СЊ РёР·РґР°С‚РµР»СЊСЃС‚РІР° СЃРѕ СЃСЂРµРґРЅРёРј С‚РёСЂР°Р¶РѕРј РјРµР¶РґСѓ 1000 Рё 5000.
 
---SELECT Izd,AVG(Pressrun) AS 'Средний тираж'
+--SELECT Izd,AVG(Pressrun) AS 'РЎСЂРµРґРЅРёР№ С‚РёСЂР°Р¶'
 --FROM books
 --GROUP BY Izd
 --HAVING AVG(Pressrun) BETWEEN 1000 AND 5000
 --ORDER BY AVG(Pressrun) DESC
 
---6) По Category вывести минимальное и максимальное значение Pages и оставить категории, где MIN(Pages) ? 50.
+--РџРѕ Category РІС‹РІРµСЃС‚Рё РјРёРЅРёРјР°Р»СЊРЅРѕРµ Рё РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ Pages Рё РѕСЃС‚Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёРё, РіРґРµ MIN(Pages) в‰Ґ 50.
 
---SELECT Category,MIN(Pages) AS 'Минимальное значение',MAX(Pages) AS 'Максимальное значение' 
+--SELECT Category,MIN(Pages) AS 'РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ',MAX(Pages) AS 'РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ' 
 --FROM books 
 --GROUP BY Category
 --HAVING MIN(Pages) >=50
 --ORDER BY MIN(Pages) DESC
 
---7) Для каждого Izd посчитать количество книг с ненулевой ценой и оставить издательства, где таких книг ? 5.
+
+--Р”Р»СЏ РєР°Р¶РґРѕРіРѕ Izd РїРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі СЃ РЅРµРЅСѓР»РµРІРѕР№ С†РµРЅРѕР№ Рё РѕСЃС‚Р°РІРёС‚СЊ РёР·РґР°С‚РµР»СЊСЃС‚РІР°, РіРґРµ С‚Р°РєРёС… РєРЅРёРі в‰Ґ 5.
 
 --INSERT INTO books (Name,Price,Izd)
---VALUES ('SQL Обучение',0,'Москва')
---SELECT Izd,COUNT(CASE WHEN Price > 0 THEN 1 END) AS 'Количество книг с ненулевой ценой'
+--VALUES ('SQL РћР±СѓС‡РµРЅРёРµ',0,'РњРѕСЃРєРІР°')
+--SELECT Izd,COUNT(CASE WHEN Price > 0 THEN 1 END) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі СЃ РЅРµРЅСѓР»РµРІРѕР№ С†РµРЅРѕР№'
 --FROM books
 --GROUP BY Izd
 --HAVING COUNT(CASE WHEN Price > 0 THEN 1 END) >=5
 
---8) По Themes посчитать количество уникальных форматов (COUNT(DISTINCT Format)) и оставить темы, где их ? 2.
+--РџРѕ Themes РїРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ СѓРЅРёРєР°Р»СЊРЅС‹С… С„РѕСЂРјР°С‚РѕРІ (COUNT(DISTINCT Format)) Рё РѕСЃС‚Р°РІРёС‚СЊ С‚РµРјС‹, РіРґРµ РёС… в‰Ґ 2.
 
---SELECT Themes,COUNT(DISTINCT Format) AS 'Уникальные форматы'
+--SELECT Themes,COUNT(DISTINCT Format) AS 'РЈРЅРёРєР°Р»СЊРЅС‹Рµ С„РѕСЂРјР°С‚С‹'
 --FROM books
 --GROUP BY Themes
 --HAVING COUNT(DISTINCT Format) >= 2
 --ORDER BY COUNT(DISTINCT Format) DESC
 
---9) Для каждого года из поля Date (YEAR(Date)) посчитать количество книг и оставить годы, где книг > 20.
+--Р”Р»СЏ РєР°Р¶РґРѕРіРѕ РіРѕРґР° РёР· РїРѕР»СЏ Date (YEAR(Date)) РїРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі Рё РѕСЃС‚Р°РІРёС‚СЊ РіРѕРґС‹, РіРґРµ РєРЅРёРі > 20.
 
---SELECT Date,COUNT(*) AS 'Количество книг' 
+--SELECT Date,COUNT(*) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі' 
 --FROM books
 --GROUP BY Date
 --HAVING COUNT(*) > 20
 --ORDER BY COUNT(*)
 
---10) По Izd посчитать среднее число страниц и оставить издательства со средним > 200.
+--РџРѕ Izd РїРѕСЃС‡РёС‚Р°С‚СЊ СЃСЂРµРґРЅРµРµ С‡РёСЃР»Рѕ СЃС‚СЂР°РЅРёС† Рё РѕСЃС‚Р°РІРёС‚СЊ РёР·РґР°С‚РµР»СЊСЃС‚РІР° СЃРѕ СЃСЂРµРґРЅРёРј > 200.
 
---SELECT Izd,AVG (Pages) AS 'среднее число страниц' 
+--SELECT Izd,AVG (Pages) AS 'СЃСЂРµРґРЅРµРµ С‡РёСЃР»Рѕ СЃС‚СЂР°РЅРёС†' 
 --FROM books
 --GROUP BY Izd
 --HAVING AVG(Pages) > 200
 --ORDER BY AVG(Pages) DESC
 
---11) По Category вывести количество книг и среднюю цену, оставить только те, где COUNT(*) ? 15 и AVG(Price) > 30.
+--РџРѕ Category РІС‹РІРµСЃС‚Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі Рё СЃСЂРµРґРЅСЋСЋ С†РµРЅСѓ, РѕСЃС‚Р°РІРёС‚СЊ С‚РѕР»СЊРєРѕ С‚Рµ, РіРґРµ COUNT(*) в‰Ґ 15 Рё AVG(Price) > 30.
 
---SELECT Category,COUNT(*) AS 'Количество книг',AVG(Price) AS 'Средняя цена'
+--SELECT Category,COUNT(*) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі',AVG(Price) AS 'РЎСЂРµРґРЅСЏСЏ С†РµРЅР°'
 --FROM books
 --GROUP BY Category
 --HAVING COUNT(*) >= 15 AND AVG(Price) > 30
 
---12) Для Themes вывести суммарный тираж и оставить темы, где SUM(Pressrun) = 0 (или IS NULL, если надо).
+--Р”Р»СЏ Themes РІС‹РІРµСЃС‚Рё СЃСѓРјРјР°СЂРЅС‹Р№ С‚РёСЂР°Р¶ Рё РѕСЃС‚Р°РІРёС‚СЊ С‚РµРјС‹, РіРґРµ SUM(Pressrun) = 0 (РёР»Рё IS NULL, РµСЃР»Рё РЅР°РґРѕ).
 
---SELECT Themes,SUM(Pressrun) AS 'Суммарный тираж '
+--SELECT Themes,SUM(Pressrun) AS 'РЎСѓРјРјР°СЂРЅС‹Р№ С‚РёСЂР°Р¶ '
 --FROM books
 --GROUP BY Themes
 --HAVING SUM(Pressrun) = 0 OR SUM(Pressrun) IS NULL
 
---13) По Format вывести количество книг и оставить только форматы, где количество находится в диапазоне [5, 12].
+--РџРѕ Format РІС‹РІРµСЃС‚Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі Рё РѕСЃС‚Р°РІРёС‚СЊ С‚РѕР»СЊРєРѕ С„РѕСЂРјР°С‚С‹, РіРґРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°С…РѕРґРёС‚СЃСЏ РІ РґРёР°РїР°Р·РѕРЅРµ [5, 12].
 
---SELECT Format,COUNT(*) AS 'Количество книг'
+--SELECT Format,COUNT(*) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі'
 --FROM books
 --GROUP BY Format
 --HAVING COUNT(*) BETWEEN 5 AND 12 
 
---14) По Izd посчитать количество бесплатных книг (Price = 0) через условную агрегацию и оставить издательства, где таких книг ? 1.
+--РџРѕ Izd РїРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ Р±РµСЃРїР»Р°С‚РЅС‹С… РєРЅРёРі (Price = 0) С‡РµСЂРµР· СѓСЃР»РѕРІРЅСѓСЋ Р°РіСЂРµРіР°С†РёСЋ Рё РѕСЃС‚Р°РІРёС‚СЊ РёР·РґР°С‚РµР»СЊСЃС‚РІР°, РіРґРµ С‚Р°РєРёС… РєРЅРёРі в‰Ґ 1.
 
 --INSERT INTO books (Name,Price)
 --VALUES ('MMA Legends',0)
---SELECT Izd,COUNT(Case WHEN Price = 0 THEN 1 END) AS 'Количество бесплатных книг'
+--SELECT Izd,COUNT(Case WHEN Price = 0 THEN 1 END) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµСЃРїР»Р°С‚РЅС‹С… РєРЅРёРі'
 --FROM books
 --GROUP BY Izd
 --HAVING COUNT(Case WHEN Price = 0 THEN 1 END) >= 1  
 
---15) Для Category посчитать количество дорогих книг (Price > 50) и оставить категории, где их ? 3.
+--Р”Р»СЏ Category РїРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕСЂРѕРіРёС… РєРЅРёРі (Price > 50) Рё РѕСЃС‚Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёРё, РіРґРµ РёС… в‰Ґ 3.
 
---SELECT Category,COUNT(CASE WHEN Price > 50 THEN 1 END) AS 'Количество дорогих книг'
+--SELECT Category,COUNT(CASE WHEN Price > 50 THEN 1 END) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РґРѕСЂРѕРіРёС… РєРЅРёРі'
 --FROM books
 --GROUP BY Category
 --HAVING COUNT(CASE WHEN Price > 50 THEN 1 END) >= 3
 
---16) По Themes посчитать среднюю «цену за страницу» (AVG(Price / NULLIF(Pages,0))) и оставить темы, где она < 0.2.
+--РџРѕ Themes РїРѕСЃС‡РёС‚Р°С‚СЊ СЃСЂРµРґРЅСЋСЋ В«С†РµРЅСѓ Р·Р° СЃС‚СЂР°РЅРёС†СѓВ» (AVG(Price / NULLIF(Pages,0))) Рё РѕСЃС‚Р°РІРёС‚СЊ С‚РµРјС‹, РіРґРµ РѕРЅР° < 0.2.
 
---SELECT Themes, AVG(Price / NULLIF(Pages, 0)) AS 'Средняя «цена за страницу»'
+--SELECT Themes, AVG(Price / NULLIF(Pages, 0)) AS 'РЎСЂРµРґРЅСЏСЏ В«С†РµРЅР° Р·Р° СЃС‚СЂР°РЅРёС†СѓВ»'
 --FROM books
 --GROUP BY Themes
 --HAVING AVG(Price / NULLIF(Pages, 0)) < 0.2
 
---17) По Izd вывести минимальную цену и оставить издательства, где MIN(Price) IS NOT NULL и MIN(Price) ? 5.
+--РџРѕ Izd РІС‹РІРµСЃС‚Рё РјРёРЅРёРјР°Р»СЊРЅСѓСЋ С†РµРЅСѓ Рё РѕСЃС‚Р°РІРёС‚СЊ РёР·РґР°С‚РµР»СЊСЃС‚РІР°, РіРґРµ MIN(Price) IS NOT NULL Рё MIN(Price) в‰Ґ 5.
 
---SELECT Izd,MIN(Price) AS 'Минимальная цена'
+
+--SELECT Izd,MIN(Price) AS 'РњРёРЅРёРјР°Р»СЊРЅР°СЏ С†РµРЅР°'
 --FROM books
 --GROUP BY Izd
 --HAVING MIN(Price) IS NOT NULL AND MIN(Price) >= 5
 
---18) По Format вывести количество книг без цены (Price IS NULL) и оставить форматы, где таких книг > 0.
+--РџРѕ Format РІС‹РІРµСЃС‚Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі Р±РµР· С†РµРЅС‹ (Price IS NULL) Рё РѕСЃС‚Р°РІРёС‚СЊ С„РѕСЂРјР°С‚С‹, РіРґРµ С‚Р°РєРёС… РєРЅРёРі > 0.
 
---SELECT Format,COUNT(CASE WHEN Price IS NULL THEN 1 END) AS 'Количество книг без цены'
+--SELECT Format,COUNT(CASE WHEN Price IS NULL THEN 1 END) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі Р±РµР· С†РµРЅС‹'
 --FROM books
 --GROUP BY Format
 --HAVING COUNT(CASE WHEN Price IS NULL THEN 1 END) > 0
 
---19) По Category посчитать количество новинок (New = 1) и оставить категории, где кол-во новинок ? 10.
+--РџРѕ Category РїРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅРѕРІРёРЅРѕРє (New = 1) Рё РѕСЃС‚Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёРё, РіРґРµ РєРѕР»-РІРѕ РЅРѕРІРёРЅРѕРє в‰Ґ 10.
 
---SELECT Category,COUNT(CASE WHEN New = 1 THEN 1 END) AS 'Количество новинок'
+
+--SELECT Category,COUNT(CASE WHEN New = 1 THEN 1 END) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РЅРѕРІРёРЅРѕРє'
 --FROM books
 --GROUP BY Category
 --HAVING COUNT(CASE WHEN New = 1 THEN 1 END) >= 10
 
---20) Для каждой пары (Izd, Format) посчитать количество книг и оставить только пары, где COUNT(*) ? 4.
+--Р”Р»СЏ РєР°Р¶РґРѕР№ РїР°СЂС‹ (Izd, Format) РїРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі Рё РѕСЃС‚Р°РІРёС‚СЊ С‚РѕР»СЊРєРѕ РїР°СЂС‹, РіРґРµ COUNT(*) в‰Ґ 4.
 
---SELECT Izd,Format,COUNT(*) AS 'Количество книг'
+--SELECT Izd,Format,COUNT(*) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРёРі'
 --FROM books
 --GROUP BY Izd,Format
 --HAVING COUNT(*) >= 4
