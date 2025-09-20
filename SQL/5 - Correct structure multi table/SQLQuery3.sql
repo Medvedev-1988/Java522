@@ -34,7 +34,6 @@
 --Показать всех студентов и все карточки одновременно, даже если у кого-то нет пары (FULL OUTER JOIN).
 --SELECT * FROM Students
 --FULL OUTER JOIN S_Cards ON Students.Id=S_Cards.Id_Student
-
 --Вывести список книг вместе с авторами, издательством (Press) и темой (Themes) в одном запросе (несколько LEFT JOIN).
 --SELECT Books.Name,Authors.FirstName,Authors.LastName,Press.Name,Themes.Name
 --FROM books
@@ -56,7 +55,6 @@
 --SELECT DISTINCT Students.FirstName FROM Students
 --UNION 
 --SELECT DISTINCT Teachers.FirstName FROM Teachers
-
 --Вывести все фамилии, встречающиеся в таблице студентов или в таблице преподавателей (UNION).
 --SELECT Students.LastName FROM Students
 --UNION 
@@ -88,7 +86,3 @@
 --EXCEPT
 --SELECT * FROM Books
 --WHERE Id_Press IS NOT NULL
-
-
-
-
